@@ -32,7 +32,10 @@ var knownPorts = map[string]string{
 }
 
 // Split is similar to [net.SplitHostPort], but accounts for the
-// scheme (protocol) as well.
+// scheme (protocol), and returns the implicit corresponding port
+// if origin doesn't explicitly mention one. For example,
+// "https://example.com" will return "https", "example.com" and
+// "443" as the port.
 func Split(origin string) (scheme, host, port string, err error) {
 	var u *url.URL
 
@@ -183,8 +186,11 @@ func Match(origin, pattern string) (bool, error) {
 	return true, nil
 }
 
-// Patterns represents a list of trusted origins or patterns
-// such as "https://example.com", or "*://*.example.com:*".
+// Patterns holds a list of trusted origins or patterns against
+// which an origin header can be checked.
+//
+// Valid values are well-formed URLs, or patterns formatted as
+// specified in the [Match] function.
 type Patterns []string
 
 // Match returns true if any of the patterns in p matches
@@ -208,7 +214,7 @@ func (p Patterns) Match(origin string) (bool, error) {
 
 // Get returns the value of the origin header in r.
 //
-// Am empty string is returned if the value in the header in "null",
+// An empty string is returned if the value in the header is "null",
 // indicating an [opaque origin].
 //
 // [opaque origin]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin#directives
