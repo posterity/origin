@@ -4,15 +4,17 @@
 
 Package origin provides simple tools and methods to compare and verify
 the `Origin` header of a request on the server-side, specifically in the
-context of a CORS request.
+context Cross-Origin Resource Sharing (CORS).
 
-It supports simple wildcard pattern matching, and handles omitted port numbers
+It supports simple wildcard pattern-matching, and handles omitted port numbers
 for the most common web protocols.
 
 ## Usage
 
 ```go
 import (
+  "io"
+
   "github.com/posterity/origin"
 )
 

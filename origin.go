@@ -31,7 +31,7 @@ var knownPorts = map[string]string{
 	"gopher": "70",
 }
 
-// Split is similar to net.SplitHostPort, but accounts for the
+// Split is similar to [net.SplitHostPort], but accounts for the
 // scheme (protocol) as well.
 func Split(origin string) (scheme, host, port string, err error) {
 	var u *url.URL
