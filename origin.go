@@ -4,7 +4,7 @@
 //
 // [origin]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin
 // [cross-origin resource sharing]: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
-package origin
+package origin // code.posterity.life/origin
 
 import (
 	"errors"
@@ -140,7 +140,8 @@ func matchString(origin, pattern string) (bool, error) {
 // of origin match the ones in the given pattern.
 //
 // Both the origin and the pattern must be formatted as:
-// 	scheme://hostname:port
+//
+//	scheme://hostname:port
 //
 // Pattern may contain a wildcard "*" in any of the three
 // components. For example, "https://*.example.com:*" will consider

@@ -1,3 +1,3 @@
-module github.com/posterity/origin
+module code.posterity.life/origin
 
-go 1.18
+go 1.20
