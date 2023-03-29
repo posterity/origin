@@ -36,7 +36,7 @@ will default to the standard port associated with it (e.g. `443` for `HTTPS`).
 import (
   "fmt"
 
-  "github.com/posterity/origin"
+  "code.posterity.life/origin"
 )
 
 func Main() {
@@ -54,7 +54,7 @@ func Main() {
 import (
   "io"
 
-  "github.com/posterity/origin"
+  "code.posterity.life/origin"
 )
 
 var patterns = origin.Patterns{
